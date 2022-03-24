@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import { Login } from "../pages/login";
+import { Books } from "../pages/booklist";
 
 export const Pages = () => {
   return (
     <Routes>
-      <Route exact path="/" element={<h1>Home</h1>} />
-      <Route exact path="/login" element={<Login />} />
+      <Route exact path="/" element={<Login />} />
+      <Route exact path="/booklist" element={<Books />} />
     </Routes>
   );
 };
