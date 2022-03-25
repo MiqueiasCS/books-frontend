@@ -95,6 +95,7 @@ export const Container = styled.div`
   @media (min-width: 1024px) {
     width: 100%;
     max-width: 1365px;
+    margin: 0 auto;
     background-image: url(${backgroundimg});
     background-blend-mode: darken;
 

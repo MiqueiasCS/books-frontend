@@ -25,8 +25,6 @@ export const Container = styled.div`
       p {
         width: 77px;
         height: 40px;
-        font-family: "Heebo";
-        font-style: normal;
         font-weight: 300;
         font-size: 28px;
         line-height: 40px;
@@ -74,16 +72,12 @@ export const Form = styled.form`
       height: 16px;
       opacity: 0.5;
       color: #ffffff;
-      font-family: "Heebo";
-      font-style: normal;
       font-weight: 400;
       font-size: 12px;
       line-height: 16px;
     }
     input {
       background-color: transparent;
-      font-family: "Heebo";
-      font-style: normal;
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
@@ -112,8 +106,6 @@ export const Form = styled.form`
       height: 36px;
       background: #ffffff;
       border-radius: 44px;
-      font-family: "Heebo";
-      font-style: normal;
       font-weight: 500;
       font-size: 16px;
       line-height: 20px;
