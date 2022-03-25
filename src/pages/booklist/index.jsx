@@ -3,18 +3,24 @@ import { useState, useEffect } from "react";
 import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "../../components/modal";
+import { Card } from "../../components/bookCard";
+import logo from "../../assets/Logob.svg";
+import { FiLogOut } from "react-icons/fi";
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
 export const Books = () => {
   const [booklist, setBookList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [book, setBook] = useState(false);
   const [page, setPage] = useState(1);
+  const [user, setUser] = useState("");
 
   const navigate = useNavigate();
 
-  const handleModalClick = (item) => {
-    setBook(item);
-    setOpenModal(true);
+  const handleLogout = () => {
+    localStorage.removeItem("@token");
+    localStorage.removeItem("@user");
+    navigate("/");
   };
 
   const handlePage = (num) => {
@@ -26,10 +32,13 @@ export const Books = () => {
 
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem("@token"));
+    let username = JSON.parse(localStorage.getItem("@user"));
 
     if (!token) {
       navigate("/");
     }
+
+    setUser(username);
 
     api
       .get("/books", {
@@ -40,29 +49,42 @@ export const Books = () => {
         console.log(response);
         setBookList(response.data.data);
       })
-      .catch((e) => console.log(e.response));
+      .catch((e) => {
+        console.log(e.response);
+        navigate("/");
+      });
   }, [page]);
 
   return (
     <Container>
-      {booklist.map((item, index) => (
-        <div key={index}>
-          <img src={item.imageUrl} alt="imagem" width={"100px"} />
-          <p>{item.title}</p>
-          <p>{item.authors.join(", ")}</p>
-          <p>páginas {item.pageCount}</p>
-          <p>Editora {item.publisher}</p>
-          <p>Publicado em {item.published}</p>
-
-          <button onClick={() => handleModalClick(item)}>Verificar</button>
+      <header>
+        <div>
+          <img src={logo} alt="logob" />
+          <p>Books</p>
         </div>
-      ))}
-      {openModal && <Modal setOpenModal={setOpenModal} book={book} />}
-      <div>
-        páginas {page} de 100{" "}
-        <button onClick={() => handlePage(-1)}>voltar</button>
-        <button onClick={() => handlePage(1)}>avançar</button>
+        <nav>
+          <p className="user">Bem vindo, {user}!</p>
+          <FiLogOut onClick={handleLogout} />
+        </nav>
+      </header>
+
+      <div className="cards">
+        {booklist.map((item, index) => (
+          <Card
+            key={index}
+            book={item}
+            setBook={setBook}
+            setOpenModal={setOpenModal}
+          />
+        ))}
       </div>
+
+      {openModal && <Modal setOpenModal={setOpenModal} book={book} />}
+      <footer className="pagination">
+        <IoIosArrowDropleft onClick={() => handlePage(-1)} />
+        <p>páginas {page} de 100</p>
+        <IoIosArrowDropright onClick={() => handlePage(1)} />
+      </footer>
     </Container>
   );
 };

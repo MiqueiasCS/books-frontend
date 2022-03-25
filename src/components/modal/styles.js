@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -10,36 +10,24 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
+
+  svg {
+    position: absolute;
+    right: 5%;
+    top: 3.52%;
+    bottom: 95.43%;
+    color: #ffffff;
+    font-size: 24px;
+  }
 `;
 
 export const ContainerChild = styled.div`
-  background-color: #f3edec;
-  width: 400px;
-  height: 500px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-
-  p.fields_labels {
-    font-weight: bold;
-    font-size: 16px;
-  }
-  button {
-    padding: 12px 0px;
-    background-color: #41b57d;
-    border: none;
-    border-radius: 10px;
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: bold;
-    width: 100px;
-    margin: 10px 0;
-    font-size: 16px;
-
-    :hover {
-      filter: brightness(0.9);
-      transition: 0.3s;
-    }
-  }
+  position: absolute;
+  width: 288px;
+  height: 970px;
+  left: 16px;
+  top: 64px;
+  background: #ffffff;
+  border-radius: 4px;
 `;

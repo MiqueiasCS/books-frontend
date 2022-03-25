@@ -1,9 +1,12 @@
 import { Container, ContainerChild } from "./styles";
 import { useEffect, useState } from "react";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 export const Modal = ({ setOpenModal, book }) => {
   return (
     <Container>
+      <AiFillCloseCircle onClick={() => setOpenModal(false)} />
+
       <ContainerChild>
         <img src={book.imageUrl} alt="imagem" width={"100px"} />
         <p>{book.title}</p>
@@ -15,7 +18,6 @@ export const Modal = ({ setOpenModal, book }) => {
         <p>isbn10 {book.isbn10}</p>
         <p>isbn13 {book.isbn13}</p>
         <p>descrição {book.description}</p>
-        <button onClick={() => setOpenModal(false)}>fechar</button>
       </ContainerChild>
     </Container>
   );
