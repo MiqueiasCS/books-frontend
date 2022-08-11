@@ -1,6 +1,6 @@
 ## Books
 
-Projeto criado para pôr em prática meus conhecimentos. Nesse projeto é possível logar, ver uma lista de livros e vizualizar os dados de um livro selecionado. A lista de livros e os seus respectivos dados foram obtidos de uma API. 
+Projeto criado para pôr em prática meus conhecimentos. Nesse projeto é possível logar, ver uma lista de livros e vizualizar todos os dados de um livro selecionado através de um modal. A lista de livros e os seus respectivos dados foram obtidos de uma API. 
 
 ## Tecnologias
 
@@ -43,4 +43,5 @@ $ yarn start
 - "/"
   - página de login
 - "/booklist"
-  - página de listagem de livros. Para ter acesso é necesário estar logado.
+  - página de listagem de livros. 
+  - **Para ter acesso é necesário estar logado**.
