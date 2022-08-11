@@ -1,12 +1,18 @@
 ## Books
 
-Projeto criado para pôr em prática meus conhecimentos. Nesse projeto é possível logar, ver uma lista de livros e vizualizar os dados de um livro selecionado.
+Projeto criado para pôr em prática meus conhecimentos. Nesse projeto é possível logar, ver uma lista de livros e vizualizar os dados de um livro selecionado. A lista de livros e os seus respectivos dados foram obtidos de uma API. 
 
 ## Tecnologias
 
 - [x] Linguagem de programação: JavaScript
 - [x] ReactJs
+- [x] ioasys books API 
 
+## Página inicial
+<div align="center">
+   <img width="800px" hight="300px" src="https://user-images.githubusercontent.com/86490798/184193909-4d075372-95f9-4546-ac79-abf5c488b252.png" /><br><br>
+    
+</div>
 
 ### 🎲 Rodando o Front End
 
